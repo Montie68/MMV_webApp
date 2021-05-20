@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class DoorTrigger : MonoBehaviour
 {
     #region Public
@@ -13,6 +13,7 @@ public class DoorTrigger : MonoBehaviour
     //private members go here
     [SerializeField] string _forwardAnimation;
     [SerializeField] string _backAnimation;
+    [SerializeField] UnityEvent _TriggerEvents;
     Animator _anim;
     int _animationDirection = 1;
     bool _isAnimPlaying = false;
@@ -35,6 +36,7 @@ public class DoorTrigger : MonoBehaviour
     {
         if (_isAnimPlaying) 
             return;
+
         if (_animationDirection == 1)
             _anim.Play(_forwardAnimation);
         else if (_backAnimation != "")
@@ -44,13 +46,15 @@ public class DoorTrigger : MonoBehaviour
     }
     public void RunAnime()
     {
-        if (_backAnimation != "")
-            _isAnimPlaying = _isAnimPlaying ? false : true;
-    }
-        #endregion
-        #region Private Methods
-        //Place your public methods here
+        _isAnimPlaying = _isAnimPlaying ? false : true;
 
-        #endregion
+        if (_backAnimation == "" && !_isAnimPlaying)
+            _TriggerEvents?.Invoke();
+    }
+    #endregion
+    #region Private Methods
+    //Place your public methods here
+
+    #endregion
 
 }
