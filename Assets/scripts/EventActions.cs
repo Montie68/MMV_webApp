@@ -27,7 +27,10 @@ public abstract class EventActions : MonoBehaviour
     #endregion
     #region Public Methods
     //Place your public methods here
-    public virtual void RunAction(float delay) { }
+    public virtual void RunAction(float delay) 
+    {
+        StartCoroutine(ActionCoroutine(delay));
+    }
     public virtual IEnumerator ActionCoroutine(float delay)
     {
         yield return new WaitForSeconds(delay);
