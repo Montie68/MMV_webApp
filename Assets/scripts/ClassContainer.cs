@@ -13,9 +13,5 @@ namespace ClassContainer
         Itialian,
     }
 
-    public enum TIMERDIRECTION
-    {
-        CountDown = -1,
-        CountUp = 1,
-    }
+
 }
