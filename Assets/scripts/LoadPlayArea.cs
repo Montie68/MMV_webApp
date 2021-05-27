@@ -11,13 +11,14 @@ public class LoadPlayArea : MonoBehaviour
 
     [SerializeField] Transform _playArea;
     [SerializeField] TextMeshProUGUI _levelTitleText;
-    [SerializeField] CountDownTimer _countDownTimer;
     [SerializeField] GameObject _objTextPrefab;
     [SerializeField] Transform _objTextArea;
     #endregion
 
     #region Public
     //public members go here
+    [SerializeField] public CountDownTimer _countDownTimer;
+
     [HideInInspector] public List<TextMeshProUGUI> objectsToFindText;
     [HideInInspector] public Museum museumScriptable;
     #endregion
@@ -57,7 +58,9 @@ public class LoadPlayArea : MonoBehaviour
         foreach (Museum.PlayObjects g in _museum.objectsToFind)
         {
             GameObject obj = Instantiate(g.gameObj, _playArea,false);
+            obj.name = g.name;
             GameObject objText = Instantiate(_objTextPrefab, _objTextArea, false);
+            objText.name = g.name;
             TextMeshProUGUI t = objText.GetComponent<TextMeshProUGUI>();
             t.text = counter++ +". " + g.name;
         }

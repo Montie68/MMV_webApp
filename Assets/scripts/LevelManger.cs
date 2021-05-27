@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(LoadPlayArea))]
 public class LevelManger : MonoBehaviour
@@ -34,7 +35,7 @@ public class LevelManger : MonoBehaviour
     List<ObjButtons> _levelObjectButtons = new List<ObjButtons>();
     LoadPlayArea _playArea;
     Museum _museumScriptable;
-
+    [SerializeField] GameObject _videoPlayer;
     #endregion
     // Place all unity Message Methods here like OnCollision, Update, Start ect. 
     #region Unity Messages 
@@ -47,11 +48,12 @@ public class LevelManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnEnable()
     {
         StartCoroutine(GetCurrnetLevel());
+        StartCoroutine(RunLevel());
     }
 
 
@@ -74,6 +76,29 @@ public class LevelManger : MonoBehaviour
             if (o.levelObjectButton == objectButton)
             {
                 o.IsClicked(o.isClicked != true ? true : false);
+                
+                TextMeshProUGUI text = null;
+
+                foreach (Museum.PlayObjects g in _museumScriptable.objectsToFind)
+                {
+                    TextMeshProUGUI[] texts = FindObjectsOfType<TextMeshProUGUI>();
+                    foreach (TextMeshProUGUI t in texts)
+                    {
+                        if (t.name == o.levelObjectButton.name)
+                        {
+                            text = t;
+                        }
+                    }
+
+                }
+                if (o.isClicked)
+                {
+                    text.text += "<sprite=32>";
+                }
+                else
+                {
+                    text.text = text.text.Remove(text.text.IndexOf("<sprite=32>"));
+                }
                 break;
             }
         }
@@ -94,6 +119,24 @@ public class LevelManger : MonoBehaviour
        
     }
 
+    private IEnumerator RunLevel()
+    {
+        bool isRunning = true;
+        while (isRunning)
+        {
+            LOOP_RESTART:
+            yield return new WaitForSeconds(1 / 30);
+            foreach (ObjButtons o in _levelObjectButtons)
+            {
+                if (!o.isClicked)
+                    goto LOOP_RESTART;
+            }
+            isRunning = false;
+
+        }
+        Debug.Log("All Clicked");
+        _playArea._countDownTimer.StopCounter();
+    }
     #endregion
 
 }
