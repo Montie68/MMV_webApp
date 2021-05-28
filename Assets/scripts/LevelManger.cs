@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.Events;
 using TMPro;
 
 [RequireComponent(typeof(LoadPlayArea))]
@@ -35,7 +37,8 @@ public class LevelManger : MonoBehaviour
     List<ObjButtons> _levelObjectButtons = new List<ObjButtons>();
     LoadPlayArea _playArea;
     Museum _museumScriptable;
-    [SerializeField] GameObject _videoPlayer;
+    [SerializeField] VideoPlayer _videoPlayer;
+    [SerializeField] UnityEvent _completeActions;
     #endregion
     // Place all unity Message Methods here like OnCollision, Update, Start ect. 
     #region Unity Messages 
@@ -43,6 +46,7 @@ public class LevelManger : MonoBehaviour
     void Start()
     {
         _playArea = GetComponent<LoadPlayArea>();
+
     }
 
     // Update is called once per frame
@@ -54,6 +58,7 @@ public class LevelManger : MonoBehaviour
     {
         StartCoroutine(GetCurrnetLevel());
         StartCoroutine(RunLevel());
+
     }
 
 
@@ -61,6 +66,8 @@ public class LevelManger : MonoBehaviour
     {
         _museumScriptable = null;
         _levelObjectButtons = new List<ObjButtons>();
+        _videoPlayer.url = null;
+
     }
     #endregion
     #region Public Methods
@@ -116,7 +123,8 @@ public class LevelManger : MonoBehaviour
         }
 
         _museumScriptable = _playArea.museumScriptable;
-       
+        _videoPlayer.url = Application.streamingAssetsPath + "/" + _museumScriptable.endVideoClipName;
+
     }
 
     private IEnumerator RunLevel()
@@ -135,7 +143,7 @@ public class LevelManger : MonoBehaviour
 
         }
         Debug.Log("All Clicked");
-        _playArea._countDownTimer.StopCounter();
+        _completeActions?.Invoke();
     }
     #endregion
 

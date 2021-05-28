@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using ClassContainer;
+using UnityEngine.Video;
 
 [CreateAssetMenu(fileName ="MuseumScriptableObject", menuName = "ScriptableObjects/MuseumScriptableObject")]
 public class Museum : ScriptableObject
@@ -21,6 +22,7 @@ public class Museum : ScriptableObject
     public string titleText;
     public List<PlayObjects> objectsToFind;
     public int secondsToFindObjs = 10;
+    public string endVideoClipName;
     #endregion
 
     #region Private
