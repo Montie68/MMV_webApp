@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.Events;
@@ -26,7 +27,6 @@ public class LevelManger : MonoBehaviour
             levelObjectButton = btn;
             isClicked = isClick;
         }
-
         public void IsClicked(bool click)
         {
             isClicked = click;
@@ -37,8 +37,10 @@ public class LevelManger : MonoBehaviour
     List<ObjButtons> _levelObjectButtons = new List<ObjButtons>();
     LoadPlayArea _playArea;
     Museum _museumScriptable;
-    [SerializeField] VideoPlayer _videoPlayer;
     [SerializeField] UnityEvent _completeActions;
+
+    [DllImport("__Internal")]
+    private static extern void PlayVideo(string url);
     #endregion
     // Place all unity Message Methods here like OnCollision, Update, Start ect. 
     #region Unity Messages 
@@ -66,8 +68,6 @@ public class LevelManger : MonoBehaviour
     {
         _museumScriptable = null;
         _levelObjectButtons = new List<ObjButtons>();
-        _videoPlayer.url = null;
-
     }
     #endregion
     #region Public Methods
@@ -110,8 +110,22 @@ public class LevelManger : MonoBehaviour
             }
         }
     }
-    #endregion
-    #region Private Methods
+
+    public void ShowTheVideo()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Playing: " + Application.streamingAssetsPath + "/" + _museumScriptable.endVideoClipName);
+       return;
+#endif
+
+#if UNITY_WEBGL
+    #pragma warning disable CS0162
+        PlayVideo(Application.streamingAssetsPath + "/" + _museumScriptable.endVideoClipName);
+    #pragma warning restore CS0162
+#endif
+    }
+#endregion
+#region Private Methods
     //Place your public methods here
     private IEnumerator GetCurrnetLevel()
     {
@@ -121,10 +135,8 @@ public class LevelManger : MonoBehaviour
             yield return new WaitForSeconds(1 / 30);
             if (_playArea.museumScriptable != null) isNull = false;
         }
-
+        
         _museumScriptable = _playArea.museumScriptable;
-        _videoPlayer.url = Application.streamingAssetsPath + "/" + _museumScriptable.endVideoClipName;
-
     }
 
     private IEnumerator RunLevel()
@@ -145,6 +157,6 @@ public class LevelManger : MonoBehaviour
         Debug.Log("All Clicked");
         _completeActions?.Invoke();
     }
-    #endregion
+#endregion
 
 }

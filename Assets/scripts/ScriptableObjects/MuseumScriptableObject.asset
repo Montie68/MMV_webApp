@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MuseumScriptableObject
   m_EditorClassIdentifier: 
   museumName: 0
-  titleText: The Jewish Museum
+  titleText: {fileID: 21300000, guid: 5dbc3f44a3370ae49a7fea0d198a8a7f, type: 3}
   objectsToFind:
   - name: Candle Stick
     gameObj: {fileID: 6851305499640207163, guid: ef3abbe6075b2db43ab778a219294bba,
@@ -25,4 +25,4 @@ MonoBehaviour:
     gameObj: {fileID: 1007158737929673964, guid: 70cc7b84a9e0d634b9d93ad1094562a1,
       type: 3}
   secondsToFindObjs: 10
-  endVideoClipName: 2021-05-22_09-34-13-front.mp4
+  endVideoClipName: DCE_day_7.mp4

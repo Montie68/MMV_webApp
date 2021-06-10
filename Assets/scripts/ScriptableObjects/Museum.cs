@@ -19,7 +19,7 @@ public class Museum : ScriptableObject
     }
     public LEVELNAMES museumName;
     [Tooltip("The Title for the Level")]
-    public string titleText;
+    public Sprite titleText;
     public List<PlayObjects> objectsToFind;
     public int secondsToFindObjs = 10;
     public string endVideoClipName;

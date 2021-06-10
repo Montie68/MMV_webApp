@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class LoadPlayArea : MonoBehaviour
@@ -10,7 +11,7 @@ public class LoadPlayArea : MonoBehaviour
     //private members go here
 
     [SerializeField] Transform _playArea;
-    [SerializeField] TextMeshProUGUI _levelTitleText;
+    [SerializeField] Image _levelTitleText;
     [SerializeField] GameObject _objTextPrefab;
     [SerializeField] Transform _objTextArea;
     #endregion
@@ -44,7 +45,8 @@ public class LoadPlayArea : MonoBehaviour
             if (t.transform != _objTextArea.transform)
                 Destroy(t.gameObject);
         }
-        _levelTitleText.text = "";
+        _levelTitleText.sprite = null;
+        _levelTitleText.color = new Color32(225, 255, 255, 0);
     }
     #endregion
     #region Public Methods
@@ -52,7 +54,8 @@ public class LoadPlayArea : MonoBehaviour
     public void LoadPlayLevel(Museum _museum)
     {
         museumScriptable = _museum;
-        _levelTitleText.text = _museum.titleText;
+        _levelTitleText.sprite = _museum.titleText;
+        _levelTitleText.color = new Color32(225, 255, 255, 255);
         _countDownTimer.StartCounter(_museum.secondsToFindObjs);
         int counter = 1;
         foreach (Museum.PlayObjects g in _museum.objectsToFind)

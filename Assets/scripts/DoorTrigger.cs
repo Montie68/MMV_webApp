@@ -48,7 +48,7 @@ public class DoorTrigger : MonoBehaviour
     {
         _isAnimPlaying = _isAnimPlaying ? false : true;
 
-        if (_backAnimation == "" && !_isAnimPlaying)
+        if (_isAnimPlaying)
             _TriggerEvents?.Invoke();
     }
     #endregion

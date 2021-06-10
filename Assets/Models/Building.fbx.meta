@@ -3,7 +3,12 @@ guid: dbfae2b42c6f2274eb2bdb36d972135f
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: dad0760b10fb7694ba3018f0dbbd7de9, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -37,15 +42,15 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
+    useSRGBMaterialColor: 0
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
     fileIdsGeneration: 2
-    swapUVChannels: 0
-    generateSecondaryUV: 0
+    swapUVChannels: 1
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -66,7 +71,7 @@ ModelImporter:
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
+    blendShapeNormalImportMode: 0
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
