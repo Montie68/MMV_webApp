@@ -30,8 +30,34 @@
         <div id="unityContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px"></div>
         <div class="footer">
             <!-- <div class="webgl-logo"></div> -->
-            <!-- <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div> -->
+            <div class="fullscreen" id="fullscreen"><span class="ig-tooltiptext">Fullscreen mode</span></div>
             <div class="title">Multicultural Museums Victoria</div>
+			<script>
+				var conH, conW;
+				var isFullsceen = false;
+				document.getElementById("fullscreen").addEventListener("click", function () {
+					var elmnt =  document.getElementById("unityContainer");
+					if (!isFullsceen)
+						{
+							// alert(window.innerWidth);
+							conH = elmnt.clientHeight;
+							conW = elmnt.clientWidth;
+							elmnt.style.width =  ((window.innerHeight - 60)/9)*16+ "px";
+							elmnt.style.height = (window.innerHeight - 60) + "px";
+							document.body.style.backgroundColor = "black";
+							document.body.style.color="white";
+						}
+					else
+						{
+							elmnt.style.width =conW + "px";
+							elmnt.style.height = conH + "px";
+							document.body.style.backgroundColor = "white";
+							document.body.style.color="black";
+
+						}
+					isFullsceen = isFullsceen ? false : true;
+				});
+			</script>
         </div>
     </div>
 </body>
