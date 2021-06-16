@@ -42,8 +42,16 @@
 							// alert(window.innerWidth);
 							conH = elmnt.clientHeight;
 							conW = elmnt.clientWidth;
-							elmnt.style.width =  ((window.innerHeight - 60)/9)*16+ "px";
-							elmnt.style.height = (window.innerHeight - 60) + "px";
+							elmnt.style.top = "-10px"
+							if (window.innerHeight < window.innerWidth)
+							{
+								elmnt.style.width =  ((window.innerHeight - 60)/9)*16+ "px";
+								elmnt.style.height = (window.innerHeight - 60) + "px";
+							}
+							else{
+								elmnt.style.width =  (window.innerWidth)+ "px";
+								elmnt.style.height = ((window.innerWidth)/16)*9 + "px";
+							}
 							document.body.style.backgroundColor = "black";
 							document.body.style.color="white";
 						}
