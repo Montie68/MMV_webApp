@@ -11,7 +11,7 @@ public class LoadPlayArea : MonoBehaviour
     //private members go here
 
     [SerializeField] Transform _playArea;
-    [SerializeField] Image _levelTitleText;
+    [SerializeField] TextMeshProUGUI _levelTitleText;
     [SerializeField] GameObject _objTextPrefab;
     [SerializeField] Transform _objTextArea;
     #endregion
@@ -45,7 +45,7 @@ public class LoadPlayArea : MonoBehaviour
             if (t.transform != _objTextArea.transform)
                 Destroy(t.gameObject);
         }
-        _levelTitleText.sprite = null;
+        _levelTitleText.text = "";
         _levelTitleText.color = new Color32(225, 255, 255, 0);
     }
     #endregion
@@ -54,7 +54,7 @@ public class LoadPlayArea : MonoBehaviour
     public void LoadPlayLevel(Museum _museum)
     {
         museumScriptable = _museum;
-        _levelTitleText.sprite = _museum.titleText;
+        _levelTitleText.text = _museum.titleText;
         _levelTitleText.color = new Color32(225, 255, 255, 255);
         _countDownTimer.StartCounter(_museum.secondsToFindObjs);
         int counter = 1;

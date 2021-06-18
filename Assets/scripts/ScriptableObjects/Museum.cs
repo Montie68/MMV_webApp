@@ -15,11 +15,12 @@ public class Museum : ScriptableObject
     public struct PlayObjects
     {
         public string name;
+        public string description;
         public GameObject gameObj;
     }
     public LEVELNAMES museumName;
     [Tooltip("The Title for the Level")]
-    public Sprite titleText;
+    public string titleText;
     public List<PlayObjects> objectsToFind;
     public int secondsToFindObjs = 10;
     public string endVideoClipName;
