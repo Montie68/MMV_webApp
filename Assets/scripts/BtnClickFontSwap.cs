@@ -49,10 +49,8 @@ public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler
     #endregion
     #region Public Methods
     //Place your public methods here
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        ChangeFont();
-    }
+    public void OnPointerDown(PointerEventData eventData) => ChangeFont();
+    
     #endregion
     #region Private Methods
     //Place your public methods here

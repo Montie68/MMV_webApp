@@ -60,7 +60,6 @@ public class LevelManger : MonoBehaviour
     {
         StartCoroutine(GetCurrnetLevel());
         StartCoroutine(RunLevel());
-
     }
 
 

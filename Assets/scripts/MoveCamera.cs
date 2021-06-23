@@ -19,10 +19,8 @@ public class MoveCamera : MonoBehaviour
     // Place all unity Message Methods here like OnCollision, Update, Start ect. 
     #region Unity Messages 
     // Start is called before the first frame update
-    void Start()
-    {
-        _beginingPos = transform.position;
-    }
+    void Start() =>_beginingPos = transform.position;
+    
 
     // Update is called once per frame
     void Update()

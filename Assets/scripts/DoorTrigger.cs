@@ -20,10 +20,8 @@ public class DoorTrigger : MonoBehaviour
   #endregion
   // Place all unity Message Methods here like OnCollision, Update, Start ect. 
   #region Unity Messages 
-    void Start()
-    {
-        _anim = GetComponent<Animator>();
-    }
+    void Start() => _anim = GetComponent<Animator>();
+  
 	
     void Update()
     {

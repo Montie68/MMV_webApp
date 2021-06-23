@@ -52,15 +52,10 @@ public class BtnRollover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _imageComponent.sprite = sprite;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        SwapImage();
-    }
+    public void OnPointerEnter(PointerEventData eventData) => SwapImage();
+ 
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        SwapImage();
-    }
+    public void OnPointerExit(PointerEventData eventData) => SwapImage();
+    
     #endregion
-
 }

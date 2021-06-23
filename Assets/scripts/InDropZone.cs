@@ -28,14 +28,8 @@ public class InDropZone : MonoBehaviour
         if (r.State != DigitalRubyShared.GestureRecognizerState.Executing)
         {
             // Swap the parents if in or out of the drop zone
-            if (m_inDropZone)
-            {
-                transform.SetParent(m_dropZone);
-            }
-            else
-            {
-                transform.SetParent(m_originalParent);
-            }
+
+            transform.SetParent(m_inDropZone == true ? m_dropZone : m_originalParent);
         }
         else
         {
