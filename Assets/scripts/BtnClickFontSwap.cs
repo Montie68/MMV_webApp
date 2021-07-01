@@ -6,7 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler
+public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+
 {
     #region Public
     //public members go here
@@ -16,6 +17,8 @@ public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler
     #region Private
     //private members go here
     [SerializeField] TMP_FontAsset _clickedFont;
+    [SerializeField] Color32[] _clickedColor;
+    Color32 _baseColor;
     TMP_FontAsset _baseFont;
     TextMeshProUGUI _buttonText;
     Button _thisButton;
@@ -33,6 +36,7 @@ public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler
 
         _thisButton.onClick.AddListener(ChangeFont);
         _baseFont = _buttonText.font;
+        _baseColor = _buttonText.color;
 
     }
 
@@ -50,15 +54,29 @@ public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler
     #region Public Methods
     //Place your public methods here
     public void OnPointerDown(PointerEventData eventData) => ChangeFont();
+
     
     #endregion
     #region Private Methods
     //Place your public methods here
     private void ChangeFont()
     {
-        _buttonText.font = _clickedFont;
+        if (_clickedFont!=null) _buttonText.font = _clickedFont;
         _buttonText.fontSize = 32;
     }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (_clickedColor.Length != 0)
+            _buttonText.color = _clickedColor[0];
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (_clickedColor.Length != 0)
+            _buttonText.color = _baseColor;
+    }
+    public void OnPointerClick(PointerEventData eventData) => OnPointerExit(eventData);
+    
 
 
     #endregion

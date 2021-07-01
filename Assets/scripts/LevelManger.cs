@@ -27,10 +27,7 @@ public class LevelManger : MonoBehaviour
             levelObjectButton = btn;
             isClicked = isClick;
         }
-        public void IsClicked(bool click)
-        {
-            isClicked = click;
-        }
+        public void IsClicked(bool click) =>  isClicked = click;
     }
 
 
@@ -38,6 +35,7 @@ public class LevelManger : MonoBehaviour
     LoadPlayArea _playArea;
     Museum _museumScriptable;
     [SerializeField] UnityEvent _completeActions;
+    [SerializeField] UnityEvent _failActions;
 
     [DllImport("__Internal")]
     private static extern void PlayVideo(string url);
@@ -48,7 +46,7 @@ public class LevelManger : MonoBehaviour
     void Start()
     {
         _playArea = GetComponent<LoadPlayArea>();
-
+        CountDownTimer.timerEnded += TimerEnded;
     }
 
     // Update is called once per frame
@@ -67,6 +65,7 @@ public class LevelManger : MonoBehaviour
     {
         _museumScriptable = null;
         _levelObjectButtons = new List<ObjButtons>();
+        CountDownTimer.timerEnded -= TimerEnded;
     }
     #endregion
     #region Public Methods
@@ -155,6 +154,10 @@ public class LevelManger : MonoBehaviour
         }
         Debug.Log("All Clicked");
         _completeActions?.Invoke();
+    }
+    private void TimerEnded()
+    {
+        _failActions?.Invoke();
     }
 #endregion
 

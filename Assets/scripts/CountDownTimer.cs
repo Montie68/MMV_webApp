@@ -27,6 +27,9 @@ public class CountDownTimer : MonoBehaviour
         CountDown = -1,
         CountUp = 1,
     }
+
+    public delegate void TimerEnded();
+    public static event TimerEnded timerEnded;
     #endregion
 
     #region Private
@@ -90,6 +93,7 @@ public class CountDownTimer : MonoBehaviour
                     t._triggerActions?.Invoke();
             }
         } while (_isRunning);
+        if (_countDownTime == 0) timerEnded?.Invoke();
     }
 
     private IEnumerator CountDownTimerTick()
