@@ -2302,8 +2302,8 @@ GameObject:
   m_Component:
   - component: {fileID: 249448590}
   - component: {fileID: 249448593}
-  - component: {fileID: 249448592}
   - component: {fileID: 249448591}
+  - component: {fileID: 249448592}
   - component: {fileID: 249448594}
   m_Layer: 5
   m_Name: Button - (5)
@@ -2400,7 +2400,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 173256387}
+  m_TargetGraphic: {fileID: 249448591}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -3829,7 +3829,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!222 &525445008
 CanvasRenderer:
@@ -4676,8 +4687,8 @@ GameObject:
   m_Component:
   - component: {fileID: 693770897}
   - component: {fileID: 693770900}
-  - component: {fileID: 693770899}
   - component: {fileID: 693770898}
+  - component: {fileID: 693770899}
   - component: {fileID: 693770901}
   m_Layer: 5
   m_Name: Button - (3)
@@ -4774,7 +4785,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 173256387}
+  m_TargetGraphic: {fileID: 693770898}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -9178,8 +9189,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1777880357}
   - component: {fileID: 1777880360}
-  - component: {fileID: 1777880359}
   - component: {fileID: 1777880358}
+  - component: {fileID: 1777880359}
   - component: {fileID: 1777880361}
   m_Layer: 5
   m_Name: Button - (4)
@@ -9276,7 +9287,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 173256387}
+  m_TargetGraphic: {fileID: 1777880358}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -9613,8 +9624,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1919111860}
   - component: {fileID: 1919111863}
-  - component: {fileID: 1919111862}
   - component: {fileID: 1919111861}
+  - component: {fileID: 1919111862}
   - component: {fileID: 1919111864}
   m_Layer: 5
   m_Name: Button - (2)
@@ -9711,7 +9722,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 173256387}
+  m_TargetGraphic: {fileID: 1919111861}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
