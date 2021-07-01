@@ -13,6 +13,9 @@ public class LoadSubMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _levelTitleText;
     [SerializeField] TextMeshProUGUI _levelObjectText;
     [SerializeField] TextMeshProUGUI _playButtonText;
+    [SerializeField] TextMeshProUGUI _levelTimerWarningText;
+    [SerializeField] LoadALevel _levelLoadButton;
+    [SerializeField] List<Button> _menuButtons;
     #endregion
 
     #region Public
@@ -37,11 +40,18 @@ public class LoadSubMenu : MonoBehaviour
         _levelTitleText.text = _museum.titleText;
         string[] s = _museum.titleText.Split(' ');
         _playButtonText.text = _playButtonText.text.Replace("[title]", s[0]);
+        _levelTimerWarningText.text = _levelTimerWarningText.text.Replace("[x]", _museum.secondsToFindObjs.ToString());
+        _levelLoadButton.museum = _museum;
         int i = 1;
         foreach (Museum.PlayObjects po in _museum.objectsToFind)
         {
             _levelObjectText.text += i++ + ".    <b>" + po.name + "</b><br> \n\r";
             _levelObjectText.text += po.description + "<br><br> \n\r\n\r";
+        }
+        foreach (Button b in _menuButtons)
+        {
+            TextMeshProUGUI t = b.GetComponentInChildren<TextMeshProUGUI>();
+            b.gameObject.SetActive(t.text == _museum.titleText ? false : true);
         }
     }
     #endregion

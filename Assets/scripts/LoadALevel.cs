@@ -6,17 +6,18 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class LoadALevel : MonoBehaviour
 {
-    #region Public
-    //public members go here
 
-    #endregion
 
     #region Private
     //private members go here
     [SerializeField] LoadPlayArea _levelToLoad;
     [SerializeField] GameObject _menuToHide;
-    [SerializeField] Museum _museum;
     private Button _aButton;
+    #endregion
+    #region Public
+    //public members go here
+    [SerializeField] public Museum museum;
+
     #endregion
     // Place all unity Message Methods here like OnCollision, Update, Start ect. 
     #region Unity Messages 
@@ -53,7 +54,7 @@ public class LoadALevel : MonoBehaviour
     {
         _levelToLoad.gameObject.SetActive(true);
         _menuToHide.SetActive(false);
-        _levelToLoad.LoadPlayLevel(_museum);
+        _levelToLoad.LoadPlayLevel(museum);
     }
     #endregion
 
