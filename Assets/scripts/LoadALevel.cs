@@ -52,7 +52,11 @@ public class LoadALevel : MonoBehaviour
     //Place your public methods here
     private void  LoadLevel()
     {
-        _levelToLoad.gameObject.SetActive(true);
+        if (!_levelToLoad.gameObject.activeInHierarchy) _levelToLoad.gameObject.SetActive(true);
+        else
+        {
+
+        }
         _menuToHide.SetActive(false);
         _levelToLoad.LoadPlayLevel(museum);
     }

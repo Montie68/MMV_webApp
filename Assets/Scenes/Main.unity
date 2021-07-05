@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 61921691}
   - component: {fileID: 61921690}
   - component: {fileID: 61921693}
+  - component: {fileID: 61921694}
   m_Layer: 5
   m_Name: Button - (2)
   m_TagString: Untagged
@@ -471,9 +472,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1237362273}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1105115126}
+        m_MethodName: set_fontMaterial
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7011540066427358610, guid: 57075f0ba1ceb4c459f6ab75458ae2c0,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1155960802}
+        m_MethodName: ReloadLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -506,6 +519,21 @@ MonoBehaviour:
   _clickedColor:
   - serializedVersion: 2
     rgba: 4278190080
+--- !u!114 &61921694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61921688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1bbb0a5ce70264a99163de34e4d077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelToLoad: {fileID: 1155960801}
+  _menuToHide: {fileID: 1237362273}
+  museum: {fileID: 0}
 --- !u!4 &73306047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dbfae2b42c6f2274eb2bdb36d972135f,
@@ -1017,7 +1045,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 147388990}
   m_OnClick:
     m_PersistentCalls:
@@ -2399,7 +2427,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 249448591}
   m_OnClick:
     m_PersistentCalls:
@@ -3721,6 +3749,7 @@ GameObject:
   - component: {fileID: 525445007}
   - component: {fileID: 525445006}
   - component: {fileID: 525445009}
+  - component: {fileID: 525445010}
   m_Layer: 5
   m_Name: Button - (1)
   m_TagString: Untagged
@@ -3820,9 +3849,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1237362273}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 525445010}
+        m_MethodName: HighlightTheIcons
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3831,12 +3860,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 525445010}
+        m_MethodName: HideMenu
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 1237362273}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3866,6 +3895,20 @@ MonoBehaviour:
   _clickedColor:
   - serializedVersion: 2
     rgba: 4278190080
+--- !u!114 &525445010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525445004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e4ae82965491945b86bbfa17db7825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Artifacts
+  _hideForSeconds: 3
 --- !u!1 &535842107
 GameObject:
   m_ObjectHideFlags: 0
@@ -4784,7 +4827,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 693770898}
   m_OnClick:
     m_PersistentCalls:
@@ -6523,6 +6566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fdc01f918e8ae40888a148d8326479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tryAgainButton: {fileID: 61921694}
   _completeActions:
     m_PersistentCalls:
       m_Calls:
@@ -6570,6 +6614,28 @@ MonoBehaviour:
           m_StringArgument: Well done you have found alll the artifacts!
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 525445004}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 61921688}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _failActions:
     m_PersistentCalls:
       m_Calls:
@@ -6585,6 +6651,28 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1237362273}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 525445004}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 61921688}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -6766,7 +6854,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 500}
+  m_SizeDelta: {x: 700, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1237362275
 MonoBehaviour:
@@ -7018,7 +7106,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1366365312}
   m_OnClick:
     m_PersistentCalls:
@@ -8803,8 +8891,8 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
-  m_Spacing: 10
+  m_ChildAlignment: 4
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -8890,7 +8978,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1755698056}
   m_OnClick:
     m_PersistentCalls:
@@ -9286,7 +9374,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1777880358}
   m_OnClick:
     m_PersistentCalls:
@@ -9721,7 +9809,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1919111861}
   m_OnClick:
     m_PersistentCalls:
@@ -10080,7 +10168,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2058839294}
   m_OnClick:
     m_PersistentCalls:

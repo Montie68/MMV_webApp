@@ -34,8 +34,10 @@ public class LevelManger : MonoBehaviour
     List<ObjButtons> _levelObjectButtons = new List<ObjButtons>();
     LoadPlayArea _playArea;
     Museum _museumScriptable;
+    [SerializeField] LoadALevel _tryAgainButton;
     [SerializeField] UnityEvent _completeActions;
     [SerializeField] UnityEvent _failActions;
+   
 
     [DllImport("__Internal")]
     private static extern void PlayVideo(string url);
@@ -47,7 +49,9 @@ public class LevelManger : MonoBehaviour
     {
         _playArea = GetComponent<LoadPlayArea>();
         CountDownTimer.timerEnded += TimerEnded;
+        HighlightIcons.hideForSec += HideObjectForSec;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -66,11 +70,21 @@ public class LevelManger : MonoBehaviour
         _museumScriptable = null;
         _levelObjectButtons = new List<ObjButtons>();
         CountDownTimer.timerEnded -= TimerEnded;
+        HighlightIcons.hideForSec -= HideObjectForSec;
     }
     #endregion
     #region Public Methods
     //Place your public methods here
-    public void AddObjectButtone(LevelObjectButton objectButton)
+    public void Reload()
+    {
+       _tryAgainButton.museum = _museumScriptable;
+    }
+    public void ReloadLevel()
+    {
+        _levelObjectButtons = new List<ObjButtons>();
+        StartCoroutine(RunLevel());
+    }
+    public void AddObjectButton(LevelObjectButton objectButton)
     {
         _levelObjectButtons.Add(new ObjButtons(objectButton));
     }
@@ -135,6 +149,7 @@ public class LevelManger : MonoBehaviour
         }
         
         _museumScriptable = _playArea.museumScriptable;
+        Reload();
     }
 
     private IEnumerator RunLevel()
@@ -159,6 +174,17 @@ public class LevelManger : MonoBehaviour
     {
         _failActions?.Invoke();
     }
-#endregion
+
+    private void HideObjectForSec(GameObject obj, float timer)
+    {
+        StartCoroutine(HideForSec(obj, timer));
+    }
+    IEnumerator HideForSec(GameObject o, float timer)
+    {
+        o.SetActive(false);
+        yield return new WaitForSeconds(timer);
+        o.SetActive(true);
+    }
+    #endregion
 
 }

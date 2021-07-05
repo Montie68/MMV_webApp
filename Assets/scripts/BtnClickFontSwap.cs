@@ -28,8 +28,14 @@ public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler, IPointerEnte
     // Start is called before the first frame update
     void Start()
     {
-        try { _buttonText = GetComponentInChildren<TextMeshProUGUI>(); }
-        catch (System.Exception e) { Debug.LogException(e); }
+        try 
+        {
+            _buttonText = GetComponentInChildren<TextMeshProUGUI>(); 
+        }
+        catch (System.Exception e) 
+        { 
+            Debug.LogException(e); 
+        }
 
         try { _thisButton = GetComponentInChildren<Button>(); }
         catch (System.Exception e) { Debug.LogException(e); }
@@ -43,7 +49,7 @@ public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler, IPointerEnte
 
     private void OnDisable()
     {
-        _buttonText.font = _baseFont;
+       if (_baseFont != null) _buttonText.font = _baseFont;
     }
     // Update is called once per frame
     void Update()
@@ -61,8 +67,11 @@ public class BtnClickFontSwap : MonoBehaviour, IPointerDownHandler, IPointerEnte
     //Place your public methods here
     private void ChangeFont()
     {
-        if (_clickedFont!=null) _buttonText.font = _clickedFont;
-        _buttonText.fontSize = 32;
+        if (_clickedFont != null)
+        {
+            _buttonText.font = _clickedFont;
+            _buttonText.fontSize = 32;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

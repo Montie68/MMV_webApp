@@ -58,10 +58,24 @@ public class LoadPlayArea : MonoBehaviour
         _levelTitleText.color = new Color32(225, 255, 255, 255);
         _countDownTimer.StartCounter(_museum.secondsToFindObjs);
         int counter = 1;
+        // clean out text area
+        TextMeshProUGUI[] textArea = _objTextArea.GetComponentsInChildren<TextMeshProUGUI>();
+
+        foreach (TextMeshProUGUI t in textArea)
+        {
+            Destroy(t.gameObject);
+        }
+
         foreach (Museum.PlayObjects g in _museum.objectsToFind)
         {
-            GameObject obj = Instantiate(g.gameObj, _playArea,false);
+            GameObject obj = GameObject.Find(g.name);
+            if (obj != null) Destroy(obj);
+
+
+            obj = Instantiate(g.gameObj, _playArea,false);
             obj.name = g.name;
+
+
             GameObject objText = Instantiate(_objTextPrefab, _objTextArea, false);
             objText.name = g.name;
             TextMeshProUGUI t = objText.GetComponent<TextMeshProUGUI>();

@@ -29,7 +29,7 @@ public class LevelObjectButton : MonoBehaviour
                 else
                 {
                     _levelManger = FindObjectOfType<LevelManger>();
-                    _levelManger.AddObjectButtone(this);
+                    _levelManger.AddObjectButton(this);
                 }
             }
             catch (System.Exception e)
