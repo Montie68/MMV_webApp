@@ -125,6 +125,8 @@ public class LevelManger : MonoBehaviour
 
     public void ShowTheVideo()
     {
+        // Invoke external HTML video player. May re-Enable if not able to use other methods
+        /*
 #if UNITY_EDITOR
         Debug.Log("Playing: " + Application.streamingAssetsPath + "/" + _museumScriptable.endVideoClipName);
        return;
@@ -134,10 +136,12 @@ public class LevelManger : MonoBehaviour
     #pragma warning disable CS0162
         PlayVideo(Application.streamingAssetsPath + "/" + _museumScriptable.endVideoClipName);
     #pragma warning restore CS0162
+        
 #endif
+        */
     }
-#endregion
-#region Private Methods
+    #endregion
+    #region Private Methods
     //Place your public methods here
     private IEnumerator GetCurrnetLevel()
     {

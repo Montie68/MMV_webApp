@@ -18,12 +18,19 @@ public class Museum : ScriptableObject
         public string description;
         public GameObject gameObj;
     }
+    [System.Serializable]
+    public struct Videos
+    {
+        public string VideoClipNames;
+        public string VideoClipUrls;
+
+    }
     public LEVELNAMES museumName;
     [Tooltip("The Title for the Level")]
     public string titleText;
     public List<PlayObjects> objectsToFind;
     public int secondsToFindObjs = 10;
-    public string endVideoClipName;
+    public List<Videos> VideoClipNames;
     #endregion
 
     #region Private
