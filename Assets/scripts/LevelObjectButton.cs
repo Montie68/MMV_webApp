@@ -7,13 +7,13 @@ public class LevelObjectButton : MonoBehaviour
 {
     #region Public
     //public members go here
+    [HideInInspector] public UnityEngine.UI.Button thisButton;
 
     #endregion
 
     #region Private
     //private members go here
     [SerializeField] LevelManger _levelManger;
-    UnityEngine.UI.Button _thisButton;
     #endregion
     // Place all unity Message Methods here like OnCollision, Update, Start ect. 
     #region Unity Messages 
@@ -37,8 +37,8 @@ public class LevelObjectButton : MonoBehaviour
                 Debug.LogException(e);
             }
         }
-        _thisButton = GetComponent<UnityEngine.UI.Button>();
-        _thisButton.onClick.AddListener(delegate() {
+        thisButton = GetComponent<UnityEngine.UI.Button>();
+        thisButton.onClick.AddListener(delegate() {
             _levelManger.ObjectFound(this);
         });
     }

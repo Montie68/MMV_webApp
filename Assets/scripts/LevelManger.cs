@@ -123,9 +123,9 @@ public class LevelManger : MonoBehaviour
         }
     }
 
-    public void ShowTheVideo()
+    public void ShowTheVideo(string url)
     {
-        Debug.Log("Playing: " + _museumScriptable.VideoClipNames[0].VideoClipUrls);
+        Debug.Log("Playing: " + url);
 
 #if UNITY_EDITOR
         return;
@@ -133,7 +133,7 @@ public class LevelManger : MonoBehaviour
 
 #if UNITY_WEBGL
     #pragma warning disable CS0162
-        PlayVideo(_museumScriptable.VideoClipNames[0].VideoClipUrls);
+        PlayVideo(url);
     #pragma warning restore CS0162
         
 #endif
@@ -175,6 +175,10 @@ public class LevelManger : MonoBehaviour
     }
     private void TimerEnded()
     {
+        foreach (ObjButtons o in _levelObjectButtons)
+        {
+            o.levelObjectButton.thisButton.interactable = false;
+        }
         _failActions?.Invoke();
     }
 

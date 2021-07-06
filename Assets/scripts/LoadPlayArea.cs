@@ -14,6 +14,10 @@ public class LoadPlayArea : MonoBehaviour
     [SerializeField] TextMeshProUGUI _levelTitleText;
     [SerializeField] GameObject _objTextPrefab;
     [SerializeField] Transform _objTextArea;
+    [SerializeField] GameObject _videoButtonsPrefab;
+    [SerializeField] Transform _videoButtonScrollArea;
+    [SerializeField] TextMeshProUGUI _levelObjectText;
+
     #endregion
 
     #region Public
@@ -45,8 +49,16 @@ public class LoadPlayArea : MonoBehaviour
             if (t.transform != _objTextArea.transform)
                 Destroy(t.gameObject);
         }
+        Button[] videoButtons = _videoButtonScrollArea.GetComponentsInChildren<Button>();
+        foreach (Button b in videoButtons)
+        {
+            if (b.transform != _videoButtonScrollArea.transform)
+                Destroy(b.gameObject);
+        }
         _levelTitleText.text = "";
         _levelTitleText.color = new Color32(225, 255, 255, 0);
+
+
     }
     #endregion
     #region Public Methods
@@ -81,6 +93,27 @@ public class LoadPlayArea : MonoBehaviour
             TextMeshProUGUI t = objText.GetComponent<TextMeshProUGUI>();
             t.text = counter++ +". " + g.name;
         }
+        foreach (Museum.Videos v in _museum.VideoClipNames)
+        {
+            GameObject obj = GameObject.Find(v.VideoClipNames);
+            if (obj != null) Destroy(obj);
+
+            GameObject objBtn = Instantiate(_videoButtonsPrefab, _videoButtonScrollArea, false);
+            objBtn.name = v.VideoClipNames;
+            TextMeshProUGUI t = objBtn.GetComponentInChildren<TextMeshProUGUI>();
+            t.text =  v.VideoClipNames;
+            LoadVideo lv = objBtn.GetComponent<LoadVideo>();
+            if (lv != null) lv.videoUrl = v.VideoClipUrls;
+            else Debug.LogError("No LoadVideo Component Found");
+        }
+        int i = 1;
+
+        foreach (Museum.PlayObjects po in _museum.objectsToFind)
+        {
+            _levelObjectText.text += i++ + ".    <b>" + po.name + "</b><br> \n\r";
+            _levelObjectText.text += po.description + "<br><br> \n\r\n\r";
+        }
+
     }
     #endregion
     #region Private Methods

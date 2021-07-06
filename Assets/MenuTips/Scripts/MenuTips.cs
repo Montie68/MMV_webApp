@@ -82,6 +82,17 @@ namespace IgnitionImmersive
 
 #endif
         }
+
+        private void OnDisable()
+        {
+            Transform[] objs = GetComponentsInChildren<Transform>();
+            foreach (Transform t in objs)
+            {
+                if (t != this.transform)
+                    Destroy(t.gameObject);
+            }
+
+        }
         public void OnPointerExit(PointerEventData eventData)
         {
             // disable if editing in the unity editor
