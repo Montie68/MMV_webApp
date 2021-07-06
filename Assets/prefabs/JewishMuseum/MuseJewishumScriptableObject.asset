@@ -33,4 +33,6 @@ MonoBehaviour:
     gameObj: {fileID: 1007158737929673964, guid: 70cc7b84a9e0d634b9d93ad1094562a1,
       type: 3}
   secondsToFindObjs: 10
-  endVideoClipName: DCE_day_7.mp4
+  VideoClipNames:
+  - VideoClipNames: Demo Video
+    VideoClipUrls: https://player.vimeo.com/video/571093070

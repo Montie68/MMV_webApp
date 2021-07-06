@@ -14,15 +14,16 @@
         var gameInstance = UnityLoader.instantiate("unityContainer", "%UNITY_WEBGL_BUILD_URL%", {onProgress: UnityProgress});
     </script>
 	</head>
-	<body oncontextmenu="return false;">
+	<body> <!-- add for local videos: oncontextmenu="return false;"> -->
         <div id="ig-videoArea"> <div id="ig-close">X</div>
-        <video width="%UNITY_WIDTH%" height="%UNITY_HEIGHT%" id="ig-videoPlayer" controls  controlsList="nodownload"></video>
+        <div width="%UNITY_WIDTH%" height="%UNITY_HEIGHT%" id="ig-videoPlayer"></div> <!-- add for local videos and change div tag to video: controls  controlsList="nodownload"></video> -->
     </div>
     <script>
         document.getElementById("ig-close").addEventListener("click", function(){
              var vid = document.getElementById("ig-videoPlayer");
-            vid.pause();
-			vid.innerHTML = "Your browser does not support the video tag.";
+            // vid.pause();
+			// vid.innerHTML = "Your browser does not support the video tag.";
+			vid.innerHTML = "&nbsp;"; // comment out if using local stored videos.
            document.getElementById("ig-videoArea").style.display = "none";
         });
     </script>
@@ -64,6 +65,7 @@
 					isFullsceen = isFullsceen ? false : true;
 				});
 			</script>
+
         </div>
     </div>
 </body>

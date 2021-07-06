@@ -125,20 +125,19 @@ public class LevelManger : MonoBehaviour
 
     public void ShowTheVideo()
     {
-        // Invoke external HTML video player. May re-Enable if not able to use other methods
-        /*
+        Debug.Log("Playing: " + _museumScriptable.VideoClipNames[0].VideoClipUrls);
+
 #if UNITY_EDITOR
-        Debug.Log("Playing: " + Application.streamingAssetsPath + "/" + _museumScriptable.endVideoClipName);
-       return;
+        return;
 #endif
 
 #if UNITY_WEBGL
     #pragma warning disable CS0162
-        PlayVideo(Application.streamingAssetsPath + "/" + _museumScriptable.endVideoClipName);
+        PlayVideo(_museumScriptable.VideoClipNames[0].VideoClipUrls);
     #pragma warning restore CS0162
         
 #endif
-        */
+        
     }
     #endregion
     #region Private Methods
