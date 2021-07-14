@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
- using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.Events;
@@ -37,10 +36,9 @@ public class LevelManger : MonoBehaviour
     [SerializeField] LoadALevel _tryAgainButton;
     [SerializeField] UnityEvent _completeActions;
     [SerializeField] UnityEvent _failActions;
-   
+    [SerializeField] UnityEvent _ResetEvents;
 
-    [DllImport("__Internal")]
-    private static extern void PlayVideo(string url);
+
     #endregion
     // Place all unity Message Methods here like OnCollision, Update, Start ect. 
     #region Unity Messages 
@@ -69,6 +67,7 @@ public class LevelManger : MonoBehaviour
     {
         _museumScriptable = null;
         _levelObjectButtons = new List<ObjButtons>();
+        _ResetEvents?.Invoke();
         CountDownTimer.timerEnded -= TimerEnded;
         HighlightIcons.hideForSec -= HideObjectForSec;
     }
@@ -81,6 +80,7 @@ public class LevelManger : MonoBehaviour
     }
     public void ReloadLevel()
     {
+        GetComponent<LoadPlayArea>().DeleteVideoButtons();
         _levelObjectButtons = new List<ObjButtons>();
         StartCoroutine(RunLevel());
     }
@@ -110,6 +110,7 @@ public class LevelManger : MonoBehaviour
                     }
 
                 }
+
                 if (o.isClicked)
                 {
                     text.text += "<sprite=32>";
@@ -123,22 +124,6 @@ public class LevelManger : MonoBehaviour
         }
     }
 
-    public void ShowTheVideo(string url)
-    {
-        Debug.Log("Playing: " + url);
-
-#if UNITY_EDITOR
-        return;
-#endif
-
-#if UNITY_WEBGL
-    #pragma warning disable CS0162
-        PlayVideo(url);
-    #pragma warning restore CS0162
-        
-#endif
-        
-    }
     #endregion
     #region Private Methods
     //Place your public methods here

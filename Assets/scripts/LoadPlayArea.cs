@@ -39,35 +39,42 @@ public class LoadPlayArea : MonoBehaviour
         Transform[] objs = _playArea.GetComponentsInChildren<Transform>();
         foreach (Transform t in objs)
         {
-            if (t != _playArea.transform) 
+            if (t.tag == "ObjectText" )
                 Destroy(t.gameObject);
         }
-
+        
         TextMeshProUGUI[] objTexts = _objTextArea.GetComponentsInChildren<TextMeshProUGUI>();
         foreach (TextMeshProUGUI t in objTexts)
         {
             if (t.transform != _objTextArea.transform)
-                Destroy(t.gameObject);
+                Destroy(t.transform.parent.gameObject);
         }
+        DeleteVideoButtons();
+        _levelTitleText.text = "";
+        /// _levelTitleText.color = new Color32(225, 255, 255, 0);
+
+
+    }
+
+    #endregion
+    #region Public Methods
+    //Place your public methods here
+    public void DeleteVideoButtons()
+    {
         Button[] videoButtons = _videoButtonScrollArea.GetComponentsInChildren<Button>();
         foreach (Button b in videoButtons)
         {
             if (b.transform != _videoButtonScrollArea.transform)
                 Destroy(b.gameObject);
         }
-        _levelTitleText.text = "";
-        _levelTitleText.color = new Color32(225, 255, 255, 0);
-
-
+        _levelObjectText.text = "";
     }
-    #endregion
-    #region Public Methods
-    //Place your public methods here
+
     public void LoadPlayLevel(Museum _museum)
     {
         museumScriptable = _museum;
         _levelTitleText.text = _museum.titleText;
-        _levelTitleText.color = new Color32(225, 255, 255, 255);
+        /// _levelTitleText.color = new Color32(225, 255, 255, 255);
         _countDownTimer.StartCounter(_museum.secondsToFindObjs);
         int counter = 1;
         // clean out text area
@@ -75,7 +82,7 @@ public class LoadPlayArea : MonoBehaviour
 
         foreach (TextMeshProUGUI t in textArea)
         {
-            Destroy(t.gameObject);
+            Destroy(t.transform.parent.gameObject);
         }
 
         foreach (Museum.PlayObjects g in _museum.objectsToFind)
@@ -90,8 +97,10 @@ public class LoadPlayArea : MonoBehaviour
 
             GameObject objText = Instantiate(_objTextPrefab, _objTextArea, false);
             objText.name = g.name;
-            TextMeshProUGUI t = objText.GetComponent<TextMeshProUGUI>();
-            t.text = counter++ +". " + g.name;
+            TextMeshProUGUI t = objText.GetComponentInChildren<TextMeshProUGUI>();
+            t.text = counter++ + ". <indent=1.5em>" +  g.name + "</indent>";
+            t.name = g.name;
+            
         }
         foreach (Museum.Videos v in _museum.VideoClipNames)
         {

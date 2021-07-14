@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Artifacts
   - VideoButton
+  - ObjectText
   layers:
   - Default
   - TransparentFX

@@ -27,17 +27,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6851305499640207163}
-  m_LocalRotation: {x: -0, y: -0, z: -0.15168914, w: 0.9884283}
+  m_LocalRotation: {x: 0, y: 0, z: -0.1896096, w: 0.98185956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -21.86}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 363.59, y: -48.6}
-  m_SizeDelta: {x: 92.05806, y: 34.60491}
+  m_AnchoredPosition: {x: 384, y: -47}
+  m_SizeDelta: {x: 115.29999, y: 34.60491}
   m_Pivot: {x: 0.5000004, y: 0.49999994}
 --- !u!222 &6851305499640207167
 CanvasRenderer:
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -131,4 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce4e56fb7e96094a997533c31b7bdd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisButton: {fileID: 0}
   _levelManger: {fileID: 0}

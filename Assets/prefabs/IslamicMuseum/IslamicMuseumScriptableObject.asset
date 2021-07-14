@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce552fb6737e72440bdf177bda851d68, type: 3}
+  m_Name: IslamicMuseumScriptableObject
+  m_EditorClassIdentifier: 
+  museumName: 3
+  titleText: Islamic Museum
+  objectsToFind:
+  - name: Kiswa - silk and gold thread
+    description: Kiswa is the name of the cloth that drapes the Kaaba, in Mecca,
+      Saudi Arabia. It is draped annually on the 9th day of the month of Dhu al-Hijjah,
+      the day pilgrims leave for the plains of Mount Arafat during the Hajj pilgrimage.
+    gameObj: {fileID: 6560013866385736290, guid: 7db34e8531eee4d40a9f303b4d3a8ec5,
+      type: 3}
+  - name: Big jihad
+    description: "Big Jihad is an artowrk from Abdul-Rahman Abdullah, a Perth based
+      multi-disciplinary artist and commercial sculptor.  It explores the meaning
+      of \u2018the greater jihad\u2019, which in Islam is the internal struggle with
+      one\u2019s nafs (the ego or commanding self)."
+    gameObj: {fileID: 7545913709271680190, guid: 786acccb3d188e54f912b614cbe42921,
+      type: 3}
+  - name: Inshallah Surfboard
+    description: Inspired by his trip to the Middle East and the Cronulla riots in
+      2005 when Lebanese Australians were targeted on a beach in Sydney, Phillip
+      George created a series of surfboards called Inshallah, or God willing, in
+      the hope of bridging the cultural divides between Australian Muslims and other
+      Australians.
+    gameObj: {fileID: 620731567389343897, guid: 2f62802f9892c4c469942623676c685a,
+      type: 3}
+  secondsToFindObjs: 10
+  VideoClipNames:
+  - VideoClipNames: Azmeena from the Jewish Museum of Australia
+    VideoClipUrls: https://player.vimeo.com/video/570203757

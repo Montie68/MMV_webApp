@@ -7,6 +7,7 @@ public class LoadVideo : MonoBehaviour
     #region Public
     //public members go here
     public string videoUrl;
+
     #endregion
 
     #region Private
@@ -30,7 +31,11 @@ public class LoadVideo : MonoBehaviour
     //Place your public methods here
     public void LoadTheVideo()
     {
-        GameObject.FindObjectOfType<LevelManger>().ShowTheVideo(videoUrl);
+        if (GameObject.FindObjectOfType<LoadExternalVideos>() != null)
+        {
+            GameObject.FindObjectOfType<LoadExternalVideos>().ShowTheVideo(videoUrl);
+        }
+        else Debug.LogError("No Load Extrenal Video Component Found!!!");
     }
     #endregion
     #region Private Methods

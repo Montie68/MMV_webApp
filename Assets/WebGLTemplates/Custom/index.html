@@ -15,7 +15,7 @@
     </script>
 	</head>
 	<body> <!-- add for local videos: oncontextmenu="return false;"> -->
-        <div id="ig-videoArea"> <div id="ig-close">X</div>
+        <div id="ig-videoArea"> <div id="ig-close"><img src="TemplateData/icons-46.png" width="50" height="50" alt="X"></div>
         <div width="%UNITY_WIDTH%" height="%UNITY_HEIGHT%" id="ig-videoPlayer"></div> <!-- add for local videos and change div tag to video: controls  controlsList="nodownload"></video> -->
     </div>
     <script>
@@ -43,22 +43,22 @@
 							// alert(window.innerWidth);
 							conH = elmnt.clientHeight;
 							conW = elmnt.clientWidth;
-							elmnt.style.top = "-10px"
-							if (window.innerHeight < window.innerWidth)
+							elmnt.style.top = "10px"
+                            if (window.innerWidth/16 > window.innerHeight/9)
 							{
-								elmnt.style.width =  ((window.innerHeight - 60)/9)*16+ "px";
-								elmnt.style.height = (window.innerHeight - 60) + "px";
-							}
-							else{
-								elmnt.style.width =  (window.innerWidth)+ "px";
-								elmnt.style.height = ((window.innerWidth)/16)*9 + "px";
-							}
-
+                                elmnt.style.width = (((window.innerHeight) /9)*16) + "px";
+                                elmnt.style.height =  ((window.innerHeight)) - 100 + "px";
+                            }
+                            else
+                            {
+                                elmnt.style.width =  ((window.innerWidth))+ "px";
+						        elmnt.style.height = (((window.innerWidth) /16)*9) - 100 + "px";
+                            }
 						}
 					else
 						{
-							elmnt.style.width =conW + "px";
-							elmnt.style.height = conH + "px";
+							elmnt.style.width = "%UNITY_WIDTH%px";
+							elmnt.style.height ="%UNITY_HEIGHT%px";
 
 
 						}

@@ -6,7 +6,7 @@ mergeInto(LibraryManager.library, {
 		 var vid = document.getElementById("ig-videoPlayer");
 		 console.log(Pointer_stringify(str));
 		 // use below line if using Vimeo
-		 vid.innerHTML = "<iframe src=\""+ Pointer_stringify(str) +"\" scrolling=\"no\" style=\"overflow: hidden;\" width=\"960\" height=\"540\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen></iframe>";
+		 vid.innerHTML = "<iframe src=\""+ Pointer_stringify(str) +"\" scrolling=\"no\" style=\"overflow: hidden;\" width=\"1024\" height=\"576\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen></iframe>";
 
 	  /*
 		// use if using locally stored videos

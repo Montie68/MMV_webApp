@@ -8,13 +8,13 @@
     }
     #ig-videoPlayer{
        position: absolute; 
-	   top: 50%;
+	   top: 47.5%;
 	   left: 50%; 
 	   -webkit-transform: translate(-50%, -50%); 
 	   transform: translate(-50%, -50%);
     }
     #ig-close{
-        font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+        font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
         float: right;
         position: absolute;
         right:25px;
