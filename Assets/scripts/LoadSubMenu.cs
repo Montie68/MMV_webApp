@@ -20,7 +20,7 @@ public class LoadSubMenu : MonoBehaviour
     [SerializeField] List<Button> _menuButtons;
     [SerializeField] UnityEngine.Events.UnityEvent ResetEvents;
     static string _sTitle;
-        
+    Vector3 _objTxtPos;  
     #endregion
 
     #region Public
@@ -33,6 +33,10 @@ public class LoadSubMenu : MonoBehaviour
 
     #region Unity Messages 
     // Start is called before the first frame update
+    private void Start()
+    {
+        _objTxtPos = _levelObjectText.rectTransform.position;
+    }
     // Update is called once per frame
 
     void OnDisable()
@@ -89,6 +93,7 @@ public class LoadSubMenu : MonoBehaviour
     public void Reset()
     {
         ResetEvents?.Invoke();
+        _levelObjectText.rectTransform.position = _objTxtPos;
     }
     
     #endregion
