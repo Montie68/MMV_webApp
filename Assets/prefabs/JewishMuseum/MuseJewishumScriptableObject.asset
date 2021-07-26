@@ -21,10 +21,10 @@ MonoBehaviour:
       8 nights of the festival. "
     gameObj: {fileID: 6851305499640207163, guid: ef3abbe6075b2db43ab778a219294bba,
       type: 3}
-  - name: 'Jewsih cookbook '
-    description: 'This cookbook is a second edition and was published by the Mothers
-      Book Committee of Bialik College Parents Association containing a collection
-      of Jewish home recipes from the mothers of Bialik College.  '
+  - name: Torah Pointer
+    description: The Yad (Torah Pointer) is an instrument that lets the reader of
+      the Torah follow the reading better by pointing to text without touching the
+      parchment, which would be eventually rubbed out by constant use
     gameObj: {fileID: 4047637272198750390, guid: 702680a8197df094da2dbd4250b0ee23,
       type: 3}
   - name: 'A confession of faith '

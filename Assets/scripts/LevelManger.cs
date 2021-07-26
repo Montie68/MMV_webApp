@@ -46,8 +46,6 @@ public class LevelManger : MonoBehaviour
     void Start()
     {
         _playArea = GetComponent<LoadPlayArea>();
-        CountDownTimer.timerEnded += TimerEnded;
-        HighlightIcons.hideForSec += HideObjectForSec;
     }
 
 
@@ -58,6 +56,8 @@ public class LevelManger : MonoBehaviour
     }
     private void OnEnable()
     {
+        CountDownTimer.timerEnded += TimerEnded;
+        HighlightIcons.hideForSec += HideObjectForSec;
         StartCoroutine(GetCurrnetLevel());
         StartCoroutine(RunLevel());
     }
@@ -113,7 +113,7 @@ public class LevelManger : MonoBehaviour
 
                 if (o.isClicked)
                 {
-                    text.text += "<sprite=32>";
+                    text.text +=  "<sprite=32>";
                 }
                 else
                 {

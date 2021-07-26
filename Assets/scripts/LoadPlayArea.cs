@@ -17,7 +17,7 @@ public class LoadPlayArea : MonoBehaviour
     [SerializeField] GameObject _videoButtonsPrefab;
     [SerializeField] Transform _videoButtonScrollArea;
     [SerializeField] TextMeshProUGUI _levelObjectText;
-
+    List<Button> _artifactButtons = new List<Button>(); 
     #endregion
 
     #region Public
@@ -67,6 +67,12 @@ public class LoadPlayArea : MonoBehaviour
             if (b.transform != _videoButtonScrollArea.transform)
                 Destroy(b.gameObject);
         }
+        foreach(Button b in _artifactButtons)
+        {
+            if (b.gameObject != null)
+                Destroy(b.gameObject);
+        }
+        _artifactButtons = new List<Button>();
         _levelObjectText.text = "";
     }
 
@@ -93,12 +99,12 @@ public class LoadPlayArea : MonoBehaviour
 
             obj = Instantiate(g.gameObj, _playArea,false);
             obj.name = g.name;
-
+            _artifactButtons.Add(obj.GetComponent<Button>());
 
             GameObject objText = Instantiate(_objTextPrefab, _objTextArea, false);
             objText.name = g.name;
             TextMeshProUGUI t = objText.GetComponentInChildren<TextMeshProUGUI>();
-            t.text = counter++ + ". <indent=1.5em>" +  g.name + "</indent>";
+            t.text =   g.name;
             t.name = g.name;
             
         }

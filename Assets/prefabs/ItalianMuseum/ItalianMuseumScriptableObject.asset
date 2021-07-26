@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItalianMuseumScriptableObject
   m_EditorClassIdentifier: 
   museumName: 4
-  titleText: Itialian Museum
+  titleText: Italian Museum
   objectsToFind:
   - name: Wooden trunk
     description: "Symbolising the journey from Italy to Australia, the wooden \u2018trunk\u2019

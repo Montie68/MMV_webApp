@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 1007158737929673964, guid: 52a4700d2aea62748aaba70a7120a888,
         type: 3}
       propertyPath: m_Name
-      value: SelectObj - Kiswa - silk and gold thread
+      value: SelectObj - Kiswa - silk and gold thread Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1007158737929673967, guid: 52a4700d2aea62748aaba70a7120a888,
         type: 3}
@@ -60,7 +60,7 @@ PrefabInstance:
     - target: {fileID: 1007158737929673967, guid: 52a4700d2aea62748aaba70a7120a888,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 167.17279
+      value: 154.66562
       objectReference: {fileID: 0}
     - target: {fileID: 1007158737929673967, guid: 52a4700d2aea62748aaba70a7120a888,
         type: 3}
@@ -100,12 +100,12 @@ PrefabInstance:
     - target: {fileID: 1007158737929673967, guid: 52a4700d2aea62748aaba70a7120a888,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -189
+      value: -257
       objectReference: {fileID: 0}
     - target: {fileID: 1007158737929673967, guid: 52a4700d2aea62748aaba70a7120a888,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100.4
+      value: 120.74
       objectReference: {fileID: 0}
     - target: {fileID: 1007158737929673967, guid: 52a4700d2aea62748aaba70a7120a888,
         type: 3}
